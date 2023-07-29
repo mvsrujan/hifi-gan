@@ -141,7 +141,7 @@ class MelDataset(torch.utils.data.Dataset):
                                   center=False)
         else:
             mel = np.load(
-                os.path.join(self.base_mels_path, os.path.splitext(filename)[0] + '.npy'))
+                os.path.join(self.base_mels_path, (f"{filename.split('wav')[0]}" + "mel"+f"{filename.split('wav')[1]}"+'npy')))
             mel = torch.from_numpy(mel)
 
             if len(mel.shape) < 3:
